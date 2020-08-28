@@ -160,21 +160,33 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
-  arr.sort((a, b) => {
-    let aFullName = `${a.firstName} ${a.lastName}`;
-    let bFullName = `${b.firstName} ${b.lastName}`;
+  return arr.sort((a, b) => {
+    let fullName1 = a.firstName + a.lastName;
+    let fullName2 = b.firstName + b.lastName;
+
     if (a.lastName < b.lastName) {
       return -1;
     } else if (a.lastName > b.lastName) {
       return 1;
-    } else if (a.lastName === b.lastName) {
-      return a.firstName - b.firstName;
-    } else if (aFullName === bFullName) {
-      return b.age - a.age;
+    } else {
+      if (a.firstName < b.firstName) {
+        return -1;
+      } else if (a.firstName > b.firstName) {
+        return 1;
+      } else {
+        if (fullName1 === fullName2) {
+          if (a.age < b.age) {
+            return -1;
+          } else if (a.age > b.age) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
     }
   });
-  return arr;
+  // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -201,6 +213,20 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  const sorter = {
+    monday: 1,
+    tuesday: 2,
+    wednesday: 3,
+    thursday: 4,
+    friday: 5,
+    saturday: 6,
+    sunday: 7,
+  };
+  return arr.sort((a, b) => {
+    let day1 = a.dayOfWeek.toLowerCase();
+    let day2 = b.dayOfWeek.toLowerCase();
+    return sorter[day1] - sorter[day2];
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -232,6 +258,7 @@ $ = createSnippetWithJQuery(`
 
 const addPearClass = () => {
   // Solution code here...
+  $("li").eq(2).addClass("pear");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -359,7 +386,7 @@ describe("Testing challenge 8", () => {
   });
 });
 
-xdescribe("Testing challenge 9", () => {
+describe("Testing challenge 9", () => {
   test("It should sort people with more strict ordering", () => {
     const family = [
       new Person("Casey", "Codefellows", 55),
@@ -387,7 +414,7 @@ xdescribe("Testing challenge 9", () => {
   });
 });
 
-xdescribe("Testing challenge 10", () => {
+describe("Testing challenge 10", () => {
   test("It should sort meetings by the day on which they happen", () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0, 2)).toEqual(
@@ -424,7 +451,7 @@ xdescribe("Testing challenge 11", () => {
   });
 });
 
-xdescribe("Testing challenge 12", () => {
+describe("Testing challenge 12", () => {
   test("It should add a class of pear to the thrid li", () => {
     addPearClass();
     expect($("li:nth-child(3)").hasClass("pear")).toBe(true);
