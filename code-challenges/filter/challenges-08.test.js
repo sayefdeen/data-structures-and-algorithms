@@ -22,6 +22,7 @@ const createServer = () => {
 
 function sayHello(request, response) {
   // Solution code here...
+  return response.status(200).send("Hello from the back-end");
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,6 +54,11 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  let regex = /[aeiou]/;
+  let newArr = arr.filter((text) => {
+    return regex.test(text);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -131,6 +137,14 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  let newArr = arr
+    .filter((obj) => {
+      return obj.baseStat > minBaseStat;
+    })
+    .map((item) => {
+      return item.stat.name;
+    });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -184,11 +198,10 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
-  return arr.filter((obj) => {
-    if (obj.children) {
-      return 1;
-    }
+  let newArr = arr.filter((obj) => {
+    if (!obj.children) return 1;
   });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -201,8 +214,16 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  let newArr = arr
+    .filter((item) => {
+      return typeof item === "number";
+    })
+    .map((num) => {
+      if (num % 2 === 0) return "even";
+      else return "odd";
+    });
+  return newArr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
