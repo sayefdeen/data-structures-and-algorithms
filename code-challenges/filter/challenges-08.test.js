@@ -235,7 +235,7 @@ Run your tests from the console: jest challenges-08.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe("Testing challenge 1", () => {
+xdescribe("Testing challenge 1", () => {
   const request = require("supertest");
 
   let server;
