@@ -6,7 +6,7 @@ CHALLENGE 1 - Review
 
 First, write a function called mapCurrentEvents that maps over the current events object, runs it through a constructor function and returns the resulting array.
 
-The constructor function should be a stand alone function named Events and should have the following keys: 
+The constructor function should be a stand alone function named Events and should have the following keys:
 * author
 * categories
 * summary
@@ -27,6 +27,7 @@ const createServer = () => {
 
   // Routes go here
   // Solution code here...
+  app.get("/events", getCurrentEvents);
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -166,14 +167,26 @@ const currentEvents = {
 
 function getCurrentEvents(request, response) {
   // Solution code here...
+  let eventsArray = mapCurrentEvents();
+  response.stats(200).json(eventsArray);
 }
 
 const mapCurrentEvents = () => {
   // Solution code here...
+  let reqEvents = currentEvents.news.map((event) => {
+    return new Event(event);
+  });
+  return reqEvents;
 };
 
 function Event(obj) {
   // Solution code here...
+  this.author = obj.author;
+  this.categories = obj.category;
+  this.summary = obj.description;
+  this.img_url = obj.url;
+  this.date = obj.published;
+  this.title = obj.title;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -423,6 +436,13 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+  let reducedObj = arr.reduce((newObj, obj) => {
+    if (obj.stat.name === statName) {
+      newObj = obj;
+    }
+    return newObj;
+  }, null);
+  return reducedObj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -437,6 +457,17 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  let childerns = arr
+    .filter((parent) => {
+      return parent.name.includes("a");
+    })
+    .reduce((childsArray, fParent) => {
+      if (fParent.children) {
+        childsArray = [...childsArray, ...fParent.children];
+      }
+      return childsArray;
+    }, []);
+  return childerns;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -449,7 +480,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-09.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe("Testing challenge 1", () => {
+describe("Testing challenge 1", () => {
   test("It should return an array of object instances with a key of author", () => {
     expect(mapCurrentEvents()[0].author).toStrictEqual("go");
   });
@@ -521,7 +552,7 @@ describe("Testing challenge 7", () => {
   });
 });
 
-xdescribe("Testing challenge 8", () => {
+describe("Testing challenge 8", () => {
   test("It should return any stats that match the input", () => {
     expect(extractStat("speed", snorlaxData.stats)).toStrictEqual({
       stat: { url: "https://pokeapi.co/api/v2/stat/6/", name: "speed" },
@@ -531,7 +562,7 @@ xdescribe("Testing challenge 8", () => {
   });
 });
 
-xdescribe("Testing challenge 9", () => {
+describe("Testing challenge 9", () => {
   test("It should return an array containing the names of the children", () => {
     expect(extractChildren(characters)).toStrictEqual([
       "Robb",
