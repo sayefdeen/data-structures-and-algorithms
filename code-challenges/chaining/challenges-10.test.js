@@ -293,7 +293,7 @@ describe("Testing challenge 3", () => {
   });
 });
 
-describe("Testing challenge 4", () => {
+xdescribe("Testing challenge 4", () => {
   test("It should return numbers divisible by five, then raise two to the power of the resulting numbers", () => {
     expect(
       divisibleByFiveTwoToThePower([
