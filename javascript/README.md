@@ -4,6 +4,6 @@
 
 ### Table Of Content
 
-| Challenge Name |       link        |
-| :------------: | :---------------: |
-| array-reverse  | [array-reverse]() |
+| Challenge Name |                                                            link                                                             |
+| :------------: | :-------------------------------------------------------------------------------------------------------------------------: |
+| array-reverse  | [array-reverse](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayReverse) |
