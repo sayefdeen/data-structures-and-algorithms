@@ -21,6 +21,8 @@ if the same idea i have to start from the end of the array and move backwords to
 
 <!-- Embedded whiteboard image -->
 
+![CC2 WhiteBoard](../assets/CC1.jpg)
+
 Solution number 1 :
 assuming array has 6 elements on it
 for loop i start with the length of the array-1.
