@@ -82,3 +82,5 @@ console.log(reverseArray2(testArray1));
 console.log(reverseArray2(testArray2));
 // This will out put [-12,823,-923,10,23,3546,2354,89];
 console.log(reverseArray2(testArray3));
+
+// Tests
