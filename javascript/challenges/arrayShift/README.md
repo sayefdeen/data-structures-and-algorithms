@@ -17,3 +17,5 @@ First it was necessary to find the middle index and round it up using Math.ceil(
 ## Solution
 
 <!-- Embedded whiteboard image -->
+
+![CC2 WhiteBoard](../assets/CC2.jpg)
