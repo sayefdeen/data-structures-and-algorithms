@@ -221,7 +221,7 @@ Run your tests from the console: jest challenge-14.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe("Testing challenge 1", function () {
+xdescribe("Testing challenge 1", function () {
   const request = require("supertest");
 
   let server;
