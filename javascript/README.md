@@ -4,9 +4,9 @@
 
 ### Table Of Content
 
-|   Challenge Name    |                                                              link                                                              |
-| :-----------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|    array-reverse    |  [array-reverse](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayReverse)   |
-|     array-shift     |    [array-shift](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayShift)     |
-| array-binary-search | [array-shift](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayBinarySearch) |
-|     linked-List     |    [linked-List](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/linkedList)     |
+|   Challenge Name    |                                                                  link                                                                   |
+| :-----------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
+|    array-reverse    |       [array-reverse](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayReverse)       |
+|     array-shift     |         [array-shift](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayShift)         |
+| array-binary-search |     [array-shift](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/arrayBinarySearch)      |
+|     linked-List     | [linked-List](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/linkedList) |
