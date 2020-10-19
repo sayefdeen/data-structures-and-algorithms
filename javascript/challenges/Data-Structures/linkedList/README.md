@@ -13,6 +13,7 @@
 - Include a method called append to add a node to the end of the linked list
 - Include a method called InsertAfter to add a node after a specific node
 - Include a method called InsertBefore to add a node before a specific node
+- Include a method called kthFromEnd to get the value of passed index from the end of linkedList
 
 ## Approach & Efficiency
 
@@ -28,6 +29,8 @@ InsertAfter : To insert a new Node, first this node should be reference to the n
 
 InsertBefore : To insert a new Node, first this node should be reference to the next node,before adding it, and the after node next should be at the added node.
 
+kthFromEnd : create an array of the values for all the Nodes, revers it then find the value for the passed index
+
 - Big O is O(n), since we are moving for for all the elements before inserting a new one
 
 ## Solution
@@ -36,8 +39,12 @@ InsertBefore : To insert a new Node, first this node should be reference to the 
 
 - Code Challenge 5 White Board
 
-![CC5 WhiteBoard](../assets/CC5.jpg)
+![CC5 WhiteBoard](../../assets/CC5.jpg)
 
 - Code Challenge 6 White Board
 
-![CC6 WhiteBoard](../assets/CC6.jpg)
+![CC6 WhiteBoard](../../assets/CC6.jpg)
+
+- Code Challenge 7 White Board
+
+![CC7 WhiteBoard](../../assets/CC7.jpg)

@@ -48,6 +48,7 @@ class LinkedList {
     let currentNode = this.head;
     if (currentNode) {
       while (currentNode.next) {
+        // console.log(currentNode);
         output += ` {${currentNode.value}}-> `;
         currentNode = currentNode.next;
       }
@@ -58,6 +59,10 @@ class LinkedList {
   insertBefore(value, newVal) {
     const node = new Node(newVal);
     let currentNode = this.head;
+    if (currentNode.value === value) {
+      node.next = this.head;
+      this.head = node;
+    }
     while (currentNode.next) {
       if (currentNode.next.value === value) {
         node.next = currentNode.next;
@@ -79,6 +84,7 @@ class LinkedList {
       if (currentNode.value === value) {
         node.next = currentNode.next;
         currentNode.next = node;
+        currentNode = currentNode.next;
         break;
       }
       currentNode = currentNode.next;
@@ -88,13 +94,28 @@ class LinkedList {
       currentNode.next = node;
     }
   }
+
+  kthFromEnd(index) {
+    let arrayOfValues = [];
+    let currentNode = this.head;
+    while (currentNode.next) {
+      arrayOfValues.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    arrayOfValues.push(currentNode.value);
+    arrayOfValues.reverse();
+    return arrayOfValues[index];
+  }
 }
 
 // let ll = new LinkedList();
 // ll.append(4);
 // ll.append(5);
+// ll.append(6);
+// console.log(ll.kthFromEnd(3));
+// ll.testKth(0);
 // console.log("before inserting", ll.toString());
-// ll.insertAfter(4, 55);
+// ll.insertBefore(4, 55);
 // console.log("after inserting", ll.toString());
 // console.log("before", ll.toString());
 // ll.insertBefore(4, 66);

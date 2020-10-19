@@ -18,6 +18,7 @@ function getForAddingPrevious(obj, location) {
     if (currentNode.next.value === location) {
       required = currentNode.next;
       previous = currentNode;
+      break;
     }
     currentNode = currentNode.next;
   }
@@ -35,6 +36,7 @@ function getForAddingAfter(obj, location) {
     if (currentNode.value === location) {
       required = currentNode.next;
       after = currentNode;
+      currentNode = currentNode.next;
       break;
     }
     currentNode = currentNode.next;
@@ -81,7 +83,8 @@ describe("Code Challenge 6 Tests", () => {
     valuesArray.forEach((item) => ll.append(item));
     ll.insertAfter(3, 6);
     let elements = getForAddingAfter(ll, 6);
-    expect(elements[0].value).toEqual(6);
+    expect(elements[0].value).toEqual(4);
+    expect(elements[1].value).toEqual(6);
   });
 
   it("Can successfully insert a node after the last node of the linked list", () => {
