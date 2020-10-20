@@ -106,12 +106,64 @@ class LinkedList {
     arrayOfValues.reverse();
     return arrayOfValues[index];
   }
+
+  zipLists(list1, list2) {
+    let currentNodeList1 = list1.head;
+    let currentNodeList2 = list2.head;
+    if (!currentNodeList1) {
+      this.head = list2.head;
+      return this;
+    } else if (!currentNodeList2) {
+      this.head = list1.head;
+      return this;
+    }
+    while (currentNodeList1.next) {
+      list1.insertAfter(currentNodeList1.value, currentNodeList2.value);
+      currentNodeList1 = currentNodeList1.next.next;
+      currentNodeList2 = currentNodeList2.next;
+    }
+    if (currentNodeList2) {
+      list1.insertAfter(currentNodeList1.value, currentNodeList2.value);
+    }
+    if (currentNodeList1.next) {
+      currentNodeList1.next.next = currentNodeList2.next;
+    }
+    // console.log(currentNodeList1);
+    // console.log(currentNodeList2);
+    this.head = list1.head;
+    return this;
+  }
+
+  getLength(list) {
+    let currentNode = list.head;
+    let counter = 0;
+    if (!currentNode) {
+      return counter;
+    }
+    while (currentNode.next) {
+      counter++;
+      currentNode = currentNode.next;
+    }
+    if (currentNode) {
+      counter++;
+    }
+    return counter;
+  }
 }
 
 // let ll = new LinkedList();
 // ll.append(4);
 // ll.append(5);
 // ll.append(6);
+// console.log(ll.getLength(ll));
+// let ll2 = new LinkedList();
+// ll2.append(7);
+// ll2.append(8);
+// ll2.append(9);
+// ll.zipLists(ll, ll2);
+// let ll3 = new LinkedList();
+// ll3.zipLists(ll, ll2);
+// console.log(ll.toString());
 // console.log(ll.kthFromEnd(3));
 // ll.testKth(0);
 // console.log("before inserting", ll.toString());
