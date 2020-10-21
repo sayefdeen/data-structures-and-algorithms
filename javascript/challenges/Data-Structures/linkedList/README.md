@@ -14,6 +14,7 @@
 - Include a method called InsertAfter to add a node after a specific node
 - Include a method called InsertBefore to add a node before a specific node
 - Include a method called kthFromEnd to get the value of passed index from the end of linkedList
+- Include a method called zipLists it wil takes to linked lists Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped lis
 
 ## Approach & Efficiency
 
@@ -30,6 +31,8 @@ InsertAfter : To insert a new Node, first this node should be reference to the n
 InsertBefore : To insert a new Node, first this node should be reference to the next node,before adding it, and the after node next should be at the added node.
 
 kthFromEnd : create an array of the values for all the Nodes, revers it then find the value for the passed index
+
+zipLists : loop throw the first list then use InsertAfter method to insert the fist vale of the second linked list after the first value of the first linked list, the loop will increase the first linked list by 2
 
 - Big O is O(n), since we are moving for for all the elements before inserting a new one
 
@@ -48,3 +51,7 @@ kthFromEnd : create an array of the values for all the Nodes, revers it then fin
 - Code Challenge 7 White Board
 
 ![CC7 WhiteBoard](../../assets/CC7.jpg)
+
+- Code Challenge 8 White Board
+
+![CC8 WhiteBoard](../../assets/CC8.jpg)
