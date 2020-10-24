@@ -32,7 +32,7 @@ class Stack {
 
   peek() {
     if (!this.top) {
-      throw new Error("Stack Is Empty");
+      throw "Stack Is Empty";
     } else {
       return this.top.value;
     }
@@ -59,13 +59,3 @@ class Stack {
 }
 
 module.exports = Stack;
-
-// const s1 = new Stack();
-// s1.push(1);
-// s1.push(2);
-// s1.push(3);
-// s1.push(4);
-// s1.push(5);
-// console.log(s1);
-// console.log(s1.isEmpty());
-// console.log("second", s1);
