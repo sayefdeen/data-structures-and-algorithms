@@ -140,21 +140,29 @@ class LinkedList {
     if (!currentNode) {
       return counter;
     }
-    while (currentNode.next) {
+    while (currentNode) {
       counter++;
       currentNode = currentNode.next;
-    }
-    if (currentNode) {
-      counter++;
     }
     return counter;
   }
 }
 
+function reverse(list) {
+  let list2 = new LinkedList();
+  let currentNode = list.head;
+  while (currentNode) {
+    list2.insert(currentNode.value);
+    currentNode = currentNode.next;
+  }
+  return list2.toString();
+}
+
 // let ll = new LinkedList();
-// ll.append(4);
-// ll.append(5);
-// ll.append(6);
+// ll.append(3);
+// ll.append(2);
+// ll.append(1);
+// console.log(reverse(ll));
 // console.log(ll.getLength(ll));
 // let ll2 = new LinkedList();
 // ll2.append(7);
