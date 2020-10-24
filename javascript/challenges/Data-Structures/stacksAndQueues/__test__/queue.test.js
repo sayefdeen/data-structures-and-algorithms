@@ -10,7 +10,7 @@ describe("Queue Implementation Test", () => {
     expect(queue.front).toBeNull();
   });
 
-  it("should insert at the back of the queue", () => {
+  it("Can push multiple values to the queue", () => {
     let testArray = [1, 2, 3];
     testArray.forEach((num) => queue.enqueue(num));
     let node = queue.front;
@@ -43,5 +43,12 @@ describe("Queue Implementation Test", () => {
     expect(() => {
       queue.dequeue();
     }).toThrow("Queue Is Empty");
+  });
+
+  it("should Empty the queue after multiple dequeue() usage", () => {
+    let testArray = [1, 2, 3];
+    testArray.forEach((num) => queue.enqueue(num));
+    testArray.forEach((num) => queue.dequeue());
+    expect(queue.front).toBeNull();
   });
 });

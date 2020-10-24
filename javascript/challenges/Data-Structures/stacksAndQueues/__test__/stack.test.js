@@ -12,10 +12,11 @@ describe("Stack Implementation Test", () => {
     expect(stack.top).toBeNull();
   });
 
-  it("should push to the top of the Stack", () => {
+  it("Can push multiple values to the stack", () => {
     let testArr = [1, 2, 3];
     testArr.forEach((num) => stack.push(num));
     expect(stack.peek()).toEqual(testArr[testArr.length - 1]);
+    expect(stack.length()).toEqual(testArr.length);
   });
 
   it("when using peek() the top value should return and the stack should remain the same", () => {
@@ -41,5 +42,12 @@ describe("Stack Implementation Test", () => {
     expect(() => {
       stack.peek();
     }).toThrow("Stack Is Empty");
+  });
+
+  it("should Empty the stack after multiple pop() usage", () => {
+    let testArr = [1, 2, 3];
+    testArr.forEach((num) => stack.push(num));
+    testArr.forEach((num) => stack.pop());
+    expect(stack.top).toBeNull();
   });
 });
