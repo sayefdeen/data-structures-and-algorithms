@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 "use strict";
 const Stack = require("../stacksAndQueues/lib/stack");
 
