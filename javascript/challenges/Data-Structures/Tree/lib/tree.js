@@ -54,6 +54,7 @@ class BinaryTree {
 
     return results;
   }
+  findMaximumValue() {}
 }
 
 module.exports = BinaryTree;
