@@ -96,6 +96,7 @@ class LinkedList {
   }
 
   kthFromEnd(index) {
+    if (index < 0) throw `Can't pass a negative value`;
     let arrayOfValues = [];
     let currentNode = this.head;
     while (currentNode.next) {
@@ -104,6 +105,9 @@ class LinkedList {
     }
     arrayOfValues.push(currentNode.value);
     arrayOfValues.reverse();
+    if (index >= arrayOfValues.length) {
+      throw "Index >  length of LinkedList";
+    }
     return arrayOfValues[index];
   }
 

@@ -1,18 +1,27 @@
 /* eslint-disable */
 "use strict";
 
+const Stack = require("../Data-Structures/stacksAndQueues/lib/stack");
+
 function multiBracketValidation(input) {
-  let openParentheses = input.match(/\(/g) ? input.match(/\(/g).length : null;
-  let openCurly = input.match(/\{/g) ? input.match(/\{/g).length : null;
-  let openSquare = input.match(/\[/g) ? input.match(/\[/g).length : null;
-  let closedParentheses = input.match(/\)/g) ? input.match(/\)/g).length : null;
-  let closedCurly = input.match(/\}/g) ? input.match(/\}/g).length : null;
-  let closedSquare = input.match(/\]/g) ? input.match(/\]/g).length : null;
-  return (
-    openParentheses === closedParentheses &&
-    openCurly === closedCurly &&
-    openSquare === closedSquare
-  );
+  let regix = /\(|\)|\[|\]|\{|\}/;
+  let onlyBrackets = input.split("").filter((char) => regix.test(char));
+  const stack = new Stack();
+  onlyBrackets.forEach((char) => {
+    if (char == "(" || char == "{" || char == "[") {
+      stack.push(char);
+    } else {
+      let opening = stack.peek();
+      if (opening === "(" && char === ")") {
+        stack.pop();
+      } else if (opening === "{" && char === "}") {
+        stack.pop();
+      } else if (opening === "[" && char === "]") {
+        stack.pop();
+      }
+    }
+  });
+  return stack.isEmpty();
 }
 
 module.exports = multiBracketValidation;
