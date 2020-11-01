@@ -4,11 +4,11 @@ const Node = require("../lib/node");
 describe("Binary Tree Tests", () => {
   let tree;
   beforeAll(() => {
-    const one = new Node(1);
-    const two = new Node(2);
-    const three = new Node(3);
-    const four = new Node(4);
-    const five = new Node(5);
+    let one = new Node(1);
+    let two = new Node(2);
+    let three = new Node(3);
+    let four = new Node(4);
+    let five = new Node(5);
     one.left = two;
     one.right = three;
     two.left = four;
@@ -30,5 +30,15 @@ describe("Binary Tree Tests", () => {
     const expectedOutPut = [4, 5, 2, 3, 1];
     const preOrder = tree.postOrder();
     expect(preOrder).toEqual(expectedOutPut);
+  });
+  it("should return the maximum value of the tree", () => {
+    const maxValue = tree.findMaximumValue();
+    expect(maxValue).toEqual(5);
+  });
+  it("should throw an Error if the tree was empty and findMax was called", () => {
+    let newTree = new BinaryTree();
+    expect(() => {
+      newTree.findMaximumValue();
+    }).toThrow("Tree Is Empty");
   });
 });

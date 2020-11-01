@@ -1,3 +1,4 @@
+const BinarySearchTree = require("./binary-search-tree");
 class BinaryTree {
   constructor(root = null) {
     this.root = root;
@@ -54,7 +55,28 @@ class BinaryTree {
 
     return results;
   }
-  findMaximumValue() {}
+  findMaximumValue() {
+    if (!this.root) {
+      throw "Tree Is Empty";
+    }
+    let bst = new BinarySearchTree();
+    const _walk = (node) => {
+      if (node.left) {
+        _walk(node.left);
+      }
+      if (node.right) {
+        _walk(node.right);
+      }
+      bst.add(node.value);
+    };
+
+    _walk(this.root);
+    let currentNode = bst.root;
+    while (currentNode.right) {
+      currentNode = currentNode.right;
+    }
+    return currentNode.value;
+  }
 }
 
 module.exports = BinaryTree;
