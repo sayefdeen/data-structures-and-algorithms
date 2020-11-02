@@ -4,7 +4,8 @@ class BinarySearchTree {
   constructor(root = null) {
     this.root = root;
   }
-
+  // assuming duplicate values are not allowed
+  // If you want to allow duplication on the right or in the left just add = to the if statements
   add(value) {
     const node = new Node(value);
     if (!this.root) {
