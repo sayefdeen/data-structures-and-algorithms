@@ -56,4 +56,16 @@ describe("Binary Tree Tests", () => {
     let maximumValue = newTree.findMaximumValue();
     expect(maximumValue).toEqual(5);
   });
+  it("should move for each level and push it to the output", () => {
+    let output = tree.breadthFirstTraversal(tree);
+    let expectedOutput = [1, 2, 3, 4, 5];
+    expect(output).toEqual(expectedOutput);
+  });
+
+  it("should throw an error if breadthFirstTraversal method used in empty array", () => {
+    let newTree = new BinaryTree();
+    expect(() => {
+      newTree.breadthFirstTraversal(newTree);
+    }).toThrow("Tree Is Empty");
+  });
 });
