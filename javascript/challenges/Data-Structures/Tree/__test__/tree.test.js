@@ -61,4 +61,11 @@ describe("Binary Tree Tests", () => {
     let expectedOutput = [1, 2, 3, 4, 5];
     expect(output).toEqual(expectedOutput);
   });
+
+  it("should throw an error if breadthFirstTraversal method used in empty array", () => {
+    let newTree = new BinaryTree();
+    expect(() => {
+      newTree.breadthFirstTraversal(newTree);
+    }).toThrow("Tree Is Empty");
+  });
 });

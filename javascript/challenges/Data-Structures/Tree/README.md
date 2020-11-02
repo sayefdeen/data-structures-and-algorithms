@@ -84,4 +84,4 @@ each iteration i will push dequeue the front of the queue, push the value of the
 
 - Code Challenge 15 White Board
 
-![CC5 WhiteBoard](../../assets/CC16.jpg)
+![CC5 WhiteBoard](../../assets/CC17.jpg)
