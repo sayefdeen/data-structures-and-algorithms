@@ -72,6 +72,9 @@ class BinaryTree {
 
     _walk(this.root);
     let currentNode = bst.root;
+    if (!currentNode.right) {
+      return currentNode.value;
+    }
     while (currentNode.right) {
       currentNode = currentNode.right;
     }

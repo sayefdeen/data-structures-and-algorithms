@@ -41,4 +41,19 @@ describe("Binary Tree Tests", () => {
       newTree.findMaximumValue();
     }).toThrow("Tree Is Empty");
   });
+
+  it("should handle if the root value was the maximum", () => {
+    let one = new Node(1);
+    let two = new Node(2);
+    let three = new Node(3);
+    let four = new Node(4);
+    let five = new Node(5);
+    one.left = two;
+    one.right = three;
+    two.left = five;
+    two.right = four;
+    let newTree = new BinaryTree(one);
+    let maximumValue = newTree.findMaximumValue();
+    expect(maximumValue).toEqual(5);
+  });
 });
