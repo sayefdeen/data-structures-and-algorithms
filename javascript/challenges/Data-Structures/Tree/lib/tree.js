@@ -1,4 +1,7 @@
 const BinarySearchTree = require("./binary-search-tree");
+const Queue = require("../../stacksAndQueues/lib/queue");
+const Node = require("./node");
+
 class BinaryTree {
   constructor(root = null) {
     this.root = root;
@@ -79,6 +82,26 @@ class BinaryTree {
       currentNode = currentNode.right;
     }
     return currentNode.value;
+  }
+  breadthFirstTraversal(tree) {
+    if (!tree.root) {
+      throw "Tree Is Empty";
+    } else {
+      let results = [];
+      let queue = new Queue();
+      queue.enqueue(tree.root);
+      while (!queue.isEmpty()) {
+        let node = queue.dequeue();
+        results.push(node.value);
+        if (node.left) {
+          queue.enqueue(node.left);
+        }
+        if (node.right) {
+          queue.enqueue(node.right);
+        }
+      }
+      return results;
+    }
   }
 }
 

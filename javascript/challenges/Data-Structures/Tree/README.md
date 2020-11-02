@@ -64,3 +64,24 @@ Since it is an ordinary BinaryTree, we have to go throw all the nodes and compar
 - Code Challenge 15 White Board
 
 ![CC5 WhiteBoard](../../assets/CC16.jpg)
+
+---
+
+- ## Code Challenge 17
+
+Create a method that will return an array ordered by each level of the tree.
+
+## Approach & Efficiency
+
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+First i have created an empty queue so i can push the all the root to the front of this queue, and an empty array to push the values of the nodes, then as long as the stack is not empty we will keep looping,
+each iteration i will push dequeue the front of the queue, push the value of the dequeued node to the array, then check if the node have a left node to push it to the queue if it have, same thing for the left.
+
+## Solution
+
+<!-- Embedded whiteboard image -->
+
+- Code Challenge 15 White Board
+
+![CC5 WhiteBoard](../../assets/CC16.jpg)
