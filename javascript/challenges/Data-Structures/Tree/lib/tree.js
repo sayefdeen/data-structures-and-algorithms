@@ -103,6 +103,56 @@ class BinaryTree {
       return results;
     }
   }
+  isNumberOfFilesEqul(tree1, tree2) {
+    if (!tree1 || !tree2) {
+      throw "One of the trees is undefined";
+    }
+    if (!tree1.root || !tree2.root) {
+      throw "One of the trees is Empty";
+    }
+    let counter = 0;
+    let array = [];
+    array.push(tree1.root);
+    array.push(tree2.root);
+    while (array.length) {
+      let node = array.shift();
+      if (node.value.toLowerCase() === "file") {
+        counter++;
+      }
+      if (node.left) {
+        array.push(node.left);
+      }
+      if (node.right) {
+        array.push(node.right);
+      }
+    }
+    return counter % 2 === 0;
+  }
 }
+let one = new Node("folder");
+let two = new Node("folder");
+let three = new Node("file");
+let four = new Node("file");
+let five = new Node("file");
+one.left = two;
+one.right = three;
+two.left = four;
+two.right = five;
+let tree = new BinaryTree(one);
+
+let one1 = new Node("folder");
+let two1 = new Node("folder");
+let three1 = new Node("folder");
+let four1 = new Node("file");
+let five1 = new Node("file");
+let six1 = new Node("file");
+one1.left = two1;
+one1.right = three1;
+two1.left = four1;
+two1.right = five1;
+three1.left = six1;
+let tree1 = new BinaryTree(one1);
+
+console.log(tree.isNumberOfFilesEqul(tree, tree1));
 
 module.exports = BinaryTree;
