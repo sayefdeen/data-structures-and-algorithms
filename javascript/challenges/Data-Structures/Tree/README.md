@@ -61,7 +61,7 @@ Since it is an ordinary BinaryTree, we have to go throw all the nodes and compar
 
 <!-- Embedded whiteboard image -->
 
-- Code Challenge 15 White Board
+- Code Challenge 16 White Board
 
 ![CC5 WhiteBoard](../../assets/CC16.jpg)
 
@@ -82,6 +82,6 @@ each iteration i will push dequeue the front of the queue, push the value of the
 
 <!-- Embedded whiteboard image -->
 
-- Code Challenge 15 White Board
+- Code Challenge 17 White Board
 
 ![CC5 WhiteBoard](../../assets/CC17.jpg)
