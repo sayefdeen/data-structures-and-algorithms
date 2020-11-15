@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const BinarySearchTree = require("./binary-search-tree");
 const Queue = require("../../stacksAndQueues/lib/queue");
 const Node = require("./node");
