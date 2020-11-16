@@ -17,6 +17,4 @@ const insertionSort = (array) => {
   return array;
 };
 
-let array1 = [8, 4, 23, 42, 16, 15];
-
 module.exports = insertionSort;

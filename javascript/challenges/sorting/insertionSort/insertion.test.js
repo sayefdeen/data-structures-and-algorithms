@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const insertionSort = require("./insertion-sort");
 
 describe("Insertion Sort Algorithm", () => {
