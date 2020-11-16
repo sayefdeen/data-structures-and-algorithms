@@ -13,5 +13,6 @@
 |    Stack and Queue     |   [Stack-Queue](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/stacksAndQueues)    |
 |    Queue with Stack    | [Queue-with-stack](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/queueWithStacks) |
 |     Animal Shelter     | [Animal-Shelter](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/fifoAnimalShelter) |
-| multiBracketValidation | [Multi Bracket Validation](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/cchallenges/multiBracketValidation) |
-|         Trees          |                   [Trees](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/cchallenges/Tree)                    |
+| multiBracketValidation | [Multi Bracket Validation](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/multiBracketValidation)  |
+|         Trees          |                    [Trees](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Tree)                    |
+|     Insertion Sort     |       [Insertion Sort](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/sorting/insertionSort)       |
