@@ -10,10 +10,13 @@ class LinkedList {
 
   insert(val) {
     const node = new Node(val);
-    node.next = this.head;
-    this.head = node;
+    if (!this.head) {
+      this.head = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
   }
-
   append(val) {
     const node = new Node(val);
     if (!this.head) {
