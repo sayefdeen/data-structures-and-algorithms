@@ -26,6 +26,16 @@ class HashMap {
     }
   }
 
+  addingNumbers(key, value) {
+    if (!this.storage[key]) {
+      const listObj = new LinkedList();
+      listObj.insert({ [key]: value });
+      this.storage[key] = listObj;
+    } else {
+      this.storage[key].insert({ [key]: value });
+    }
+  }
+
   get(key) {
     const hashKey = this.hash(key);
     const storageEle = this.storage[hashKey];
