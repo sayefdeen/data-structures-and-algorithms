@@ -1,7 +1,4 @@
 "use strict";
-const HashMap = require("../hashTables/lib/hashtable");
-const lHashTable = new HashMap(4000);
-const rHashTable = new HashMap(4000);
 
 function leftJoin(lTable, rTable) {
   let rTableKeys = Object.keys(rTable.storage).map((item) => parseInt(item));
@@ -17,8 +14,7 @@ function leftJoin(lTable, rTable) {
     }
   });
 
-  //   console.log(lTable.storage[1900].head.value);
-  return output(lHashTable);
+  return output(lTable);
 }
 function output(hashTable) {
   let keys = Object.keys(hashTable.storage).map((key) => parseInt(key));
@@ -46,22 +42,4 @@ function output(hashTable) {
   return output;
 }
 
-lHashTable.add("fond", "enamored");
-lHashTable.add("wrath", "anger");
-lHashTable.add("diligent", "employed");
-lHashTable.add("outfit", "garb");
-lHashTable.add("guide", "usher");
-
-rHashTable.add("fond", "average");
-rHashTable.add("wrath", "delight");
-rHashTable.add("diligent", "idle");
-rHashTable.add("guide", "follow");
-rHashTable.add("flow", "jam");
-
-console.log(leftJoin(lHashTable, rHashTable));
-
-// let keys = Object.keys(
-//     hashTable.storage).map((item) => parseInt(item));
-// keys.forEach((key) => console.log(hashTable.storage[key]));
-// console.log(hashTable.hash("ahmad"));
-// console.log(hashTable.storage[1900]);
+module.exports = leftJoin;

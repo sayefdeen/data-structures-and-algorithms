@@ -1,5 +1,6 @@
 /* eslint-disable quotes */
 "use strict";
+const leftJoin = require("../../leftJoin/left-join");
 const LinkedList = require("../../linkedList/lib/linked-list");
 const firstRepeatedWord = require("../../repeatedWords/repeated-word");
 const BinarySearchTree = require("../../Tree/lib/binary-search-tree");
@@ -94,6 +95,32 @@ describe("Hash Table Tests", () => {
     it("should return a statement if both of the trees are empty", () => {
       let output = tree_intersection(treeObj1, treeObj2);
       expect(output).toEqual("One of the trees is Empty");
+    });
+  });
+
+  describe("Code Challenge 33 Test Cases", () => {
+    it("should Left Join two hashMaps", () => {
+      const lHashTable = new HashMap(4000);
+      const rHashTable = new HashMap(4000);
+      lHashTable.add("fond", "enamored");
+      lHashTable.add("wrath", "anger");
+      lHashTable.add("diligent", "employed");
+      lHashTable.add("outfit", "garb");
+      lHashTable.add("guide", "usher");
+
+      rHashTable.add("fond", "average");
+      rHashTable.add("wrath", "delight");
+      rHashTable.add("diligent", "idle");
+      rHashTable.add("guide", "follow");
+      rHashTable.add("flow", "jam");
+      let output = leftJoin(lHashTable, rHashTable);
+      expect(output).toEqual([
+        ["fond", "enamored", "average"],
+        ["guide", "usher", "follow"],
+        ["wrath", "anger", "delight"],
+        ["outfit", "garb", "NULL"],
+        ["diligent", "employed", "idle"],
+      ]);
     });
   });
 });
