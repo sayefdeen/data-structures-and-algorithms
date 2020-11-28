@@ -165,11 +165,25 @@ function reverse(list) {
   return list2.toString();
 }
 
+function revers2(list) {
+  let curr = list.head;
+  let prev = null;
+  while (list.head.next) {
+    list.head = list.head.next;
+    curr.next = prev;
+    prev = curr;
+    curr = list.head;
+  }
+  list.head.next = prev;
+  return list.toString();
+}
+
 // let ll = new LinkedList();
 // ll.append(3);
 // ll.append(2);
 // ll.append(1);
-// console.log(reverse(ll));
+// console.log(ll.toString());
+// console.log(revers2(ll));
 // console.log(ll.getLength(ll));
 // let ll2 = new LinkedList();
 // ll2.append(7);
