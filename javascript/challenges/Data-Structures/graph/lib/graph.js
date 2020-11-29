@@ -2,6 +2,7 @@
 
 const Edge = require("./edge");
 const Vertex = require("./vertex");
+const Queue = require("../../stacksAndQueues/lib/queue");
 
 class Graph {
   constructor() {
@@ -50,6 +51,63 @@ class Graph {
   size() {
     return this.adjacentList.size;
   }
+
+  breadthFirst(startingNode) {}
+
+  print() {
+    let output = [];
+    for (const [vertex, edge] of this.adjacentList.entries()) {
+      if (!output.includes(vertex.value)) {
+        output.push(vertex.value);
+      }
+      for (const edges in edge) {
+        if (!output.includes(edge[edges].vertex.value)) {
+          output.push(edge[edges].vertex.value);
+        }
+      }
+    }
+    console.log(output);
+  }
 }
+
+const graph = new Graph();
+
+const pandora = new Vertex("Pandora");
+const monstroplolis = new Vertex("Monstroplolis");
+const narnia = new Vertex("Narnia");
+const naboo = new Vertex("Naboo");
+const metroville = new Vertex("metroville");
+const arendelle = new Vertex("Arendelle");
+
+graph.addVertex(pandora);
+graph.addVertex(arendelle);
+graph.addVertex(metroville);
+graph.addVertex(monstroplolis);
+graph.addVertex(narnia);
+graph.addVertex(naboo);
+
+graph.addEdge(pandora, arendelle);
+graph.addEdge(arendelle, pandora);
+
+graph.addEdge(arendelle, metroville);
+graph.addEdge(metroville, arendelle);
+graph.addEdge(metroville, naboo);
+graph.addEdge(arendelle, monstroplolis);
+graph.addEdge(monstroplolis, arendelle);
+
+graph.addEdge(metroville, monstroplolis);
+graph.addEdge(monstroplolis, metroville);
+graph.addEdge(monstroplolis, naboo);
+graph.addEdge(metroville, narnia);
+graph.addEdge(narnia, metroville);
+
+graph.addEdge(narnia, naboo);
+graph.addEdge(naboo, narnia);
+
+graph.addEdge(naboo, monstroplolis);
+graph.addEdge(naboo, metroville);
+
+// graph.print();
+graph.breadthFirst(pandora);
 
 module.exports = Graph;

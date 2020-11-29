@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 "use strict";
 
 const Graph = require("../lib/graph");
