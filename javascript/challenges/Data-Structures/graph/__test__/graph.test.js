@@ -72,4 +72,90 @@ describe("Graphs Data Structure", () => {
       }).toThrowError("Invalid Vertex");
     });
   });
+
+  describe("Code Challenge 36 BFS", () => {
+    let graphObj;
+    let pandora;
+    let monstroplolis;
+    let narnia;
+    let naboo;
+    let metroville;
+    let arendelle;
+    beforeAll(() => {
+      graphObj = new Graph();
+      pandora = new Vertex("Pandora");
+      monstroplolis = new Vertex("Monstroplolis");
+      narnia = new Vertex("Narnia");
+      naboo = new Vertex("Naboo");
+      metroville = new Vertex("metroville");
+      arendelle = new Vertex("Arendelle");
+
+      graphObj.addVertex(pandora);
+      graphObj.addVertex(arendelle);
+      graphObj.addVertex(metroville);
+      graphObj.addVertex(monstroplolis);
+      graphObj.addVertex(narnia);
+      graphObj.addVertex(naboo);
+
+      graphObj.addEdge(pandora, arendelle);
+      graphObj.addEdge(arendelle, pandora);
+
+      graphObj.addEdge(arendelle, metroville);
+      graphObj.addEdge(metroville, arendelle);
+      graphObj.addEdge(metroville, naboo);
+      graphObj.addEdge(arendelle, monstroplolis);
+      graphObj.addEdge(monstroplolis, arendelle);
+
+      graphObj.addEdge(metroville, monstroplolis);
+      graphObj.addEdge(monstroplolis, metroville);
+      graphObj.addEdge(monstroplolis, naboo);
+      graphObj.addEdge(metroville, narnia);
+      graphObj.addEdge(narnia, metroville);
+
+      graphObj.addEdge(narnia, naboo);
+      graphObj.addEdge(naboo, narnia);
+
+      graphObj.addEdge(naboo, monstroplolis);
+      graphObj.addEdge(naboo, metroville);
+    });
+
+    it(`should return [
+      'Monstroplolis',
+      'Arendelle',
+      'metroville',
+      'Naboo',
+      'Pandora',
+      'Narnia'
+    ] if we start with monstroplolis`, () => {
+      let output = graphObj.breadthFirst(monstroplolis);
+      let expectedOutput = [
+        "Monstroplolis",
+        "Arendelle",
+        "metroville",
+        "Naboo",
+        "Pandora",
+        "Narnia",
+      ];
+      expect(output).toEqual(expectedOutput);
+    });
+    it(`should return [
+      'Pandora',
+      'Arendelle',
+      'metroville',
+      'Monstroplolis',
+      'Naboo',
+      'Narnia'
+    ] if we start with pandora`, () => {
+      let output = graphObj.breadthFirst(pandora);
+      let expectedOutput = [
+        "Pandora",
+        "Arendelle",
+        "metroville",
+        "Monstroplolis",
+        "Naboo",
+        "Narnia",
+      ];
+      expect(output).toEqual(expectedOutput);
+    });
+  });
 });
