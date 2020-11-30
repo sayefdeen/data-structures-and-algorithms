@@ -20,6 +20,8 @@ Implement a graph data structure that have 5 methods for the beginning
 
 - size : this method will return the size of the graph
 
+- breadthFirst() : this method will take a starting node that will start from, will return all the nodes in Breath First Search (BFS) using queue data structure
+
 ## Approach & Efficiency
 
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -34,6 +36,8 @@ getNeighbors : (O1) to get the node, O(n) to get all the Neighbors
 
 getSize : O(n) since we are iterated for all the nodes
 
+breadthFirst : O(n logn)
+
 ## API
 
 <!-- Description of each method publicly available in your Graph -->
@@ -47,3 +51,9 @@ getSize : O(n) since we are iterated for all the nodes
 - getNeighbors : this method will return all the nodes that are connected to the passed node
 
 - size : this method will return the size of the graph
+
+## Solution
+
+### Code Challenge 36 WhiteBoard
+
+![Code Challenge 36 WhiteBoard](../../assets/CC36.jpg)

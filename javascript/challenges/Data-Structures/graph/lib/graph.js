@@ -2,6 +2,7 @@
 
 const Edge = require("./edge");
 const Vertex = require("./vertex");
+const Queue = require("../../stacksAndQueues/lib/queue");
 
 class Graph {
   constructor() {
@@ -49,6 +50,26 @@ class Graph {
 
   size() {
     return this.adjacentList.size;
+  }
+
+  breadthFirst(startingNode) {
+    const queue = new Queue();
+    const vertexesArray = [];
+    queue.enqueue(startingNode);
+    vertexesArray.push(startingNode.value);
+    while (queue.length()) {
+      let node = queue.dequeue();
+      let vertexEdges = this.adjacentList.get(node);
+      if (vertexEdges.length) {
+        for (let index = 0; index < vertexEdges.length; index++) {
+          if (!vertexesArray.includes(vertexEdges[index].vertex.value)) {
+            queue.enqueue(vertexEdges[index].vertex);
+            vertexesArray.push(vertexEdges[index].vertex.value);
+          }
+        }
+      }
+    }
+    return vertexesArray;
   }
 }
 
