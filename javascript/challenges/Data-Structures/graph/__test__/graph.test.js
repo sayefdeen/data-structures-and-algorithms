@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 "use strict";
 
+const getEdge = require("../../getEdge/get-edge");
 const Graph = require("../lib/graph");
 const Vertex = require("../lib/vertex");
 
@@ -97,26 +98,27 @@ describe("Graphs Data Structure", () => {
       graphObj.addVertex(narnia);
       graphObj.addVertex(naboo);
 
-      graphObj.addEdge(pandora, arendelle);
-      graphObj.addEdge(arendelle, pandora);
+      graphObj.addEdge(pandora, arendelle, 150);
+      graphObj.addEdge(arendelle, pandora, 150);
 
-      graphObj.addEdge(arendelle, metroville);
-      graphObj.addEdge(metroville, arendelle);
-      graphObj.addEdge(metroville, naboo);
-      graphObj.addEdge(arendelle, monstroplolis);
-      graphObj.addEdge(monstroplolis, arendelle);
+      graphObj.addEdge(arendelle, metroville, 99);
+      graphObj.addEdge(metroville, arendelle, 99);
+      graphObj.addEdge(metroville, naboo, 26);
+      graphObj.addEdge(metroville, pandora, 82);
+      graphObj.addEdge(arendelle, monstroplolis, 42);
+      graphObj.addEdge(monstroplolis, arendelle, 42);
 
-      graphObj.addEdge(metroville, monstroplolis);
-      graphObj.addEdge(monstroplolis, metroville);
-      graphObj.addEdge(monstroplolis, naboo);
-      graphObj.addEdge(metroville, narnia);
-      graphObj.addEdge(narnia, metroville);
+      graphObj.addEdge(metroville, monstroplolis, 105);
+      graphObj.addEdge(monstroplolis, metroville, 105);
+      graphObj.addEdge(monstroplolis, naboo, 73);
+      graphObj.addEdge(metroville, narnia, 37);
+      graphObj.addEdge(narnia, metroville, 37);
 
-      graphObj.addEdge(narnia, naboo);
-      graphObj.addEdge(naboo, narnia);
+      graphObj.addEdge(narnia, naboo, 250);
+      graphObj.addEdge(naboo, narnia, 250);
 
-      graphObj.addEdge(naboo, monstroplolis);
-      graphObj.addEdge(naboo, metroville);
+      graphObj.addEdge(naboo, monstroplolis, 73);
+      graphObj.addEdge(naboo, metroville, 105);
     });
 
     it(`should return [
@@ -156,6 +158,28 @@ describe("Graphs Data Structure", () => {
         "Narnia",
       ];
       expect(output).toEqual(expectedOutput);
+    });
+
+    describe("Code Challenge 37 get-edge", () => {
+      it("should return True if there is a connection between the  cities", () => {
+        let result = getEdge(graphObj, [metroville, pandora]);
+        expect(result).toContain("True");
+      });
+
+      it("should return True if there is a connection between the  cities", () => {
+        let result = getEdge(graphObj, [arendelle, monstroplolis, naboo]);
+        expect(result).toContain("True");
+      });
+
+      it("should return False if there is no connection between the  cities", () => {
+        let result = getEdge(graphObj, [naboo, pandora]);
+        expect(result).toContain("False");
+      });
+
+      it("should return False if there is no connection between the  cities", () => {
+        let result = getEdge(graphObj, [narnia, arendelle, naboo]);
+        expect(result).toContain("False");
+      });
     });
   });
 });

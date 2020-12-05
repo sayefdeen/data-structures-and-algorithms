@@ -18,3 +18,4 @@
 |     Insertion Sort     |       [Insertion Sort](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/sorting/insertionSort)       |
 |       Hash Table       |      [Hash Table](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/hashTables)       |
 |         Graph          |           [Graphs](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/graph)           |
+|       Get-Edges        |          [Graphs](https://github.com/sayefdeen/data-structures-and-algorithms/tree/master/javascript/challenges/Data-Structures/getEdge)          |
